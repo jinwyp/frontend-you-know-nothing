@@ -14,6 +14,11 @@
 
 
     <style>
+
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+            display: none !important;
+        }
+
         md-card:first-child {
             padding: 8px 8px 8px 24px;
         }
@@ -23,6 +28,9 @@
             padding: 16px;
             min-width: 300px;
             flex: 0 0 auto;
+        }
+
+
     </style>
 </head>
 
@@ -35,13 +43,13 @@
     </div>
 </md-toolbar>
 
-<md-content laout="column" flex ng-controller="tableController">
+<md-content laout="column" flex ng-controller="tableController" ng-cloak>
 
     <md-card>
         <div layout="row" layout-wrap class="checkboxes">
             <md-checkbox ng-model="options.rowSelection">每行可选</md-checkbox>
             <md-checkbox ng-model="options.autoSelect">点击自动选中该行</md-checkbox>
-            <md-checkbox ng-model="options.largeEditDialog">易用的输入框</md-checkbox>
+            <md-checkbox ng-model="options.largeEditDialog">增强的评论输入框</md-checkbox>
             <md-checkbox ng-model="options.boundaryLinks">分页可选择首尾页</md-checkbox>
             <!--<md-checkbox ng-model="options.pageSelector">Pagination Page Selector</md-checkbox>-->
         </div>
@@ -51,7 +59,7 @@
 
         <md-toolbar class="md-table-toolbar md-default" ng-hide="options.rowSelection && selected.length">
             <div class="md-toolbar-tools">
-                <span>前端框架/库</span>
+                <span>前端框架/库 功能对比</span>
                 <div flex></div>
                 <md-button ng-click="loadStuff()">异步操作</md-button>
             </div>
@@ -69,37 +77,79 @@
             <table md-table md-row-select="options.rowSelection" ng-model="selected" md-progress="promise">
                 <thead md-head md-order="query.order" md-on-reorder="logOrder">
                     <tr md-row>
-                        <th md-column md-order-by="name"><span>jQuery</span></th>
-                        <th md-column md-order-by="type"><span>Backbone</span></th>
-                        <th md-column md-numeric md-order-by="calories.value" md-desc><span>Calories</span></th>
-                        <th md-column md-numeric md-order-by="fat.value"><span>Fat (g)</span></th>
-                        <th md-column md-numeric md-order-by="carbs.value"><span>Carbs (g)</span></th>
-                        <th md-column md-numeric md-order-by="protein.value"><span>Protein (g)</span></th>
-                        <th md-column md-numeric md-order-by="sodium.value" hide-gt-xs show-gt-md><span>Sodium (mg)</span></th>
-                        <th md-column md-numeric md-order-by="calcium.value" hide-gt-xs show-gt-lg><span>Calcium (%)</span></th>
-                        <th md-column md-numeric md-order-by="iron.value" hide-gt-xs show-gt-lg><span>Iron (%)</span></th>
-                        <th md-column md-order-by="comment">
-                            <md-icon>comments</md-icon>
-                            <span>Comments</span>
-                        </th>
+                        <th md-column ><span>框架/库</span></th>
+                        <th md-column ><span><a href="https://jquery.com/" target="_blank">jQuery</a></span></th>
+                        <th md-column ><span><a href="http://backbonejs.org/" target="_blank">Backbone</a></span></th>
+                        <th md-column ><span><a href="http://emberjs.com/" target="_blank">Ember</a></span></th>
+                        <th md-column ><span><a href="http://knockoutjs.com/" target="_blank">Knockout</a></span></th>
+                        <th md-column ><span><a href="https://angularjs.org/" target="_blank">Angular</a></span></th>
+                        <th md-column ><span><a href="https://angular.io/" target="_blank">Angular2</a></span></th>
+
+                        <th md-column ><span><a href="http://vuejs.org/" target="_blank">Vue</a></span></th>
+                        <th md-column ><span><a href="https://avalonjs.github.io/" target="_blank">Avalon</a></span></th>
+
+                        <th md-column ><span><a href="https://facebook.github.io/react/" target="_blank">React Flux/Redux</a></span></th>
                     </tr>
                 </thead>
 
                 <tbody md-body>
-                    <tr md-row md-select="dessert" md-on-select="logItem" md-auto-select="options.autoSelect" ng-disabled="dessert.calories.value > 400" ng-repeat="item in data.frameworkData | filter: filter.search | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
-                        <td md-cell>{{item.name}}</md-cell>
+                    <tr md-row md-select="item" md-on-select="logItem" md-auto-select="options.autoSelect" ng-repeat="item in data.frameworkData  | limitTo: query.limit : (query.page -1) * query.limit">
+                        <td md-cell>{{item.name}}</td>
+
                         <td md-cell>
-                            <md-select ng-model="item.type" placeholder="Other">
-                                <md-option ng-value="type" ng-repeat="type in getTypes()">{{type}}</md-option>
+                            <md-select ng-model="item.jquery" placeholder="Other">
+                                <md-option ng-value="type" ng-repeat="type in getOptionTypes()">{{type}}</md-option>
                             </md-select>
-                            </md-cell>
-                        <td md-cell>{{item.calories.value}}</td>
-                        <td md-cell>{{item.fat.value | number: 2}}</td>
-                        <td md-cell>{{item.carbs.value}}</td>
-                        <td md-cell>{{item.protein.value | number: 2}}</td>
-                        <td md-cell hide-gt-xs show-gt-md>{{item.sodium.value}}</td>
-                        <td md-cell hide-gt-xs show-gt-lg>{{item.calcium.value}}%</td>
-                        <td md-cell hide-gt-xs show-gt-lg>{{item.iron.value}}%</td>
+                        </td>
+
+                        <td md-cell>
+                            <md-select ng-model="item.backbone" placeholder="Other">
+                                <md-option ng-value="type" ng-repeat="type in getOptionTypes()">{{type}}</md-option>
+                            </md-select>
+                        </td>
+
+                        <td md-cell>
+                            <md-select ng-model="item.ember" placeholder="Other">
+                                <md-option ng-value="type" ng-repeat="type in getOptionTypes()">{{type}}</md-option>
+                            </md-select>
+                        </td>
+
+                        <td md-cell>
+                            <md-select ng-model="item.knockout" placeholder="Other">
+                                <md-option ng-value="type" ng-repeat="type in getOptionTypes()">{{type}}</md-option>
+                            </md-select>
+                        </td>
+
+                        <td md-cell>
+                            <md-select ng-model="item.angular" placeholder="Other">
+                                <md-option ng-value="type" ng-repeat="type in getOptionTypes()">{{type}}</md-option>
+                            </md-select>
+                        </td>
+
+                        <td md-cell>
+                            <md-select ng-model="item.angular2" placeholder="Other">
+                                <md-option ng-value="type" ng-repeat="type in getOptionTypes()">{{type}}</md-option>
+                            </md-select>
+                        </td>
+
+                        <td md-cell>
+                            <md-select ng-model="item.vue" placeholder="Other">
+                                <md-option ng-value="type" ng-repeat="type in getOptionTypes()">{{type}}</md-option>
+                            </md-select>
+                        </td>
+
+                        <td md-cell>
+                            <md-select ng-model="item.avalon" placeholder="Other">
+                                <md-option ng-value="type" ng-repeat="type in getOptionTypes()">{{type}}</md-option>
+                            </md-select>
+                        </td>
+
+                        <td md-cell>
+                            <md-select ng-model="item.react" placeholder="Other">
+                                <md-option ng-value="type" ng-repeat="type in getOptionTypes()">{{type}}</md-option>
+                            </md-select>
+                        </td>
+
                         <td md-cell ng-click="editComment($event, item)" ng-class="{'md-placeholder': !item.comment}">
                             {{item.comment || 'Add a comment'}}
                         </td>
@@ -109,7 +159,7 @@
 
         </md-table-container>
 
-        <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{desserts.count}}" md-page-select="options.pageSelector" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
+        <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{data.count}}" md-page-select="options.pageSelector" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
     </md-card>
 </md-content>
 
