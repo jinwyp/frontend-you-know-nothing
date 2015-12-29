@@ -445,6 +445,30 @@ angular.module('demoApp', ['ngMaterial', 'md.data.table'])
                     "vue": "",
                     "avalon": "",
                     "react": "有,redux超乎你想像"
+                },
+                {
+                    "name": "超时代功能 － JSON Graph",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "无",
+                    "angular2": "无",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "有"
+                },
+                {
+                    "name": "超时代功能 － Reactive",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "无",
+                    "angular2": "有",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "有"
                 }
 
 
