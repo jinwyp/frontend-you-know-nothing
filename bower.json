@@ -1,0 +1,21 @@
+{
+  "name": "Frontend You Know Nothing",
+  "homepage": "https://github.com/jinwyp/frontend-you-know-nothing",
+  "authors": [
+    "JinWYP"
+  ],
+  "description": "Frontend framework comparison in year 2015",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-material-data-table": "~0.9.1"
+  }
+}

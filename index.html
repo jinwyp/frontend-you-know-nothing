@@ -1,0 +1,124 @@
+<html ng-app="demoApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Frontend You Know Nothing</title>
+
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="bower_components/angular-material-data-table/dist/md-data-table.css">
+
+
+    <style>
+        md-card:first-child {
+            padding: 8px 8px 8px 24px;
+        }
+
+        .checkboxes > md-checkbox {
+            margin: 0;
+            padding: 16px;
+            min-width: 300px;
+            flex: 0 0 auto;
+    </style>
+</head>
+
+<body layout="column">
+
+<md-toolbar class="md-whiteframe-1dp">
+    <div class="md-toolbar-tools">
+        <div class="md-title">Frontend You Know Nothing - Frontend framework comparison in year 2015</div>
+
+    </div>
+</md-toolbar>
+
+<md-content laout="column" flex ng-controller="tableController">
+
+    <md-card>
+        <div layout="row" layout-wrap class="checkboxes">
+            <md-checkbox ng-model="options.rowSelection">每行可选</md-checkbox>
+            <md-checkbox ng-model="options.autoSelect">点击自动选中该行</md-checkbox>
+            <md-checkbox ng-model="options.largeEditDialog">易用的输入框</md-checkbox>
+            <md-checkbox ng-model="options.boundaryLinks">分页可选择首尾页</md-checkbox>
+            <!--<md-checkbox ng-model="options.pageSelector">Pagination Page Selector</md-checkbox>-->
+        </div>
+    </md-card>
+
+    <md-card>
+
+        <md-toolbar class="md-table-toolbar md-default" ng-hide="options.rowSelection && selected.length">
+            <div class="md-toolbar-tools">
+                <span>前端框架/库</span>
+                <div flex></div>
+                <md-button ng-click="loadStuff()">异步操作</md-button>
+            </div>
+        </md-toolbar>
+
+        <md-toolbar class="md-table-toolbar alternate" ng-show="options.rowSelection && selected.length">
+            <div class="md-toolbar-tools">
+                <span>{{selected.length}} {{selected.length > 1 ? 'items' : 'item'}} selected</span>
+            </div>
+        </md-toolbar>
+
+
+
+        <md-table-container>
+            <table md-table md-row-select="options.rowSelection" ng-model="selected" md-progress="promise">
+                <thead md-head md-order="query.order" md-on-reorder="logOrder">
+                    <tr md-row>
+                        <th md-column md-order-by="name"><span>jQuery</span></th>
+                        <th md-column md-order-by="type"><span>Backbone</span></th>
+                        <th md-column md-numeric md-order-by="calories.value" md-desc><span>Calories</span></th>
+                        <th md-column md-numeric md-order-by="fat.value"><span>Fat (g)</span></th>
+                        <th md-column md-numeric md-order-by="carbs.value"><span>Carbs (g)</span></th>
+                        <th md-column md-numeric md-order-by="protein.value"><span>Protein (g)</span></th>
+                        <th md-column md-numeric md-order-by="sodium.value" hide-gt-xs show-gt-md><span>Sodium (mg)</span></th>
+                        <th md-column md-numeric md-order-by="calcium.value" hide-gt-xs show-gt-lg><span>Calcium (%)</span></th>
+                        <th md-column md-numeric md-order-by="iron.value" hide-gt-xs show-gt-lg><span>Iron (%)</span></th>
+                        <th md-column md-order-by="comment">
+                            <md-icon>comments</md-icon>
+                            <span>Comments</span>
+                        </th>
+                    </tr>
+                </thead>
+
+                <tbody md-body>
+                    <tr md-row md-select="dessert" md-on-select="logItem" md-auto-select="options.autoSelect" ng-disabled="dessert.calories.value > 400" ng-repeat="item in data.frameworkData | filter: filter.search | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit">
+                        <td md-cell>{{item.name}}</md-cell>
+                        <td md-cell>
+                            <md-select ng-model="item.type" placeholder="Other">
+                                <md-option ng-value="type" ng-repeat="type in getTypes()">{{type}}</md-option>
+                            </md-select>
+                            </md-cell>
+                        <td md-cell>{{item.calories.value}}</td>
+                        <td md-cell>{{item.fat.value | number: 2}}</td>
+                        <td md-cell>{{item.carbs.value}}</td>
+                        <td md-cell>{{item.protein.value | number: 2}}</td>
+                        <td md-cell hide-gt-xs show-gt-md>{{item.sodium.value}}</td>
+                        <td md-cell hide-gt-xs show-gt-lg>{{item.calcium.value}}%</td>
+                        <td md-cell hide-gt-xs show-gt-lg>{{item.iron.value}}%</td>
+                        <td md-cell ng-click="editComment($event, item)" ng-class="{'md-placeholder': !item.comment}">
+                            {{item.comment || 'Add a comment'}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </md-table-container>
+
+        <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{desserts.count}}" md-page-select="options.pageSelector" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
+    </md-card>
+</md-content>
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.min.js"></script>
+<script src="bower_components/angular-aria/angular-aria.min.js"></script>
+<script src="bower_components/angular-material/angular-material.min.js"></script>
+<script src="bower_components/angular-material-data-table/dist/md-data-table.js"></script>
+<script src="app/js/app.js"></script>
+
+</body>
+</html>
