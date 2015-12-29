@@ -94,7 +94,7 @@
 
                 <tbody md-body>
                     <tr md-row md-select="item" md-on-select="logItem" md-auto-select="options.autoSelect" ng-repeat="item in data.frameworkData  | limitTo: query.limit : (query.page -1) * query.limit">
-                        <td md-cell>{{item.name}}</td>
+                        <td md-cell >{{item.name}}</td>
 
                         <td md-cell>
                             <md-select ng-model="item.jquery" placeholder="Other">
@@ -162,6 +162,9 @@
         <md-table-pagination md-limit="query.limit" md-page="query.page" md-total="{{data.count}}" md-page-select="options.pageSelector" md-boundary-links="options.boundaryLinks" md-on-paginate="logPagination"></md-table-pagination>
     </md-card>
 </md-content>
+
+
+
 
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-animate/angular-animate.min.js"></script>

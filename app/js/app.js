@@ -142,6 +142,131 @@ angular.module('demoApp', ['ngMaterial', 'md.data.table'])
                     "vue": "",
                     "avalon": "",
                     "react": "无,不要拿这点吐槽我,抄袭angular怎么了"
+                },
+
+
+
+
+
+                {
+                    "name": "时髦功能－链式操作",
+                    "jquery": "特有功能,凌波微步",
+                    "backbone": "无,需要jQuery",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "无",
+                    "angular2": "无",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "无,Reactive算不?"
+                },
+                {
+                    "name": "时髦功能－单向绑定",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无,underscore模版功能少得可怜",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "有",
+                    "angular2": "ng1有的都有",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "有,immutable高大上"
+                },
+                {
+                    "name": "时髦功能－双向绑定",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无,跟不上时代了",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "吊炸天",
+                    "angular2": "ng1有的都有,全新语法",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "无,觉得不需要"
+                },
+                {
+                    "name": "时髦功能－声明式模版语法",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无,跟不上时代了",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "有",
+                    "angular2": "ng1有的都有",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "无,JSX多牛X"
+                },
+                {
+                    "name": "时髦功能－MVC",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "有,前端MVC领导者,想当年我的生态圈也是数一数二的",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "有",
+                    "angular2": "无,我是react",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "无,不要落后的东西"
+                },
+                {
+                    "name": "时髦功能－MVVM",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无,但很多插件可以实现,就是不太好用,说不出来为啥",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "有,其实我是MVW",
+                    "angular2": "肯定有",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "无,不要落后的东西"
+                },
+                {
+                    "name": "时髦功能－SPA",
+                    "jquery": "无,有插件pjax,但后人看没什么卵用",
+                    "backbone": "有,很好用,是吗?",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "有,ngRoute都说功能少,newRouter很好用,就是不发布",
+                    "angular2": "有,非常强大,但不吊炸天",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "有,全组件化就是好,但就是累人"
+                },
+                {
+                    "name": "时髦功能－依赖注入",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无,前端需要吗?",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "有",
+                    "angular2": "不清楚",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "无,什么玩意?"
+                },
+                {
+                    "name": "时髦功能－调试工具",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无,跟不上时代了",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "有,非常完善,浏览器插件等",
+                    "angular2": "有",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "有,非常多,hot reload blow your mind,浏览器插件就不用提了"
+                },
+                {
+                    "name": "时髦功能－测试开发工具",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无,跟不上时代了",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "有,非常多,而且一直在升级,从来未稳定",
+                    "angular2": "有,还要搞更多新的工具",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "有,很多,什么你不会用? webpack都不会用?"
                 }
             ]
         };
