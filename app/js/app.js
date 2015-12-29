@@ -267,6 +267,97 @@ angular.module('demoApp', ['ngMaterial', 'md.data.table'])
                     "vue": "",
                     "avalon": "",
                     "react": "有,很多,什么你不会用? webpack都不会用?"
+                },
+
+
+
+
+
+
+
+                {
+                    "name": "次时代功能－组件",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "有,为什么我发明了组件却让react火了,不用JSX就不是组件了?",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "有,很多人难理解,觉得没有或不知道233",
+                    "angular2": "有,正宗的web component",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "有,JSX才是组件"
+                },
+                {
+                    "name": "次时代功能－组件作用域单向传值",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "有",
+                    "angular2": "有",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "有,props"
+                },
+                {
+                    "name": "次时代功能－组件作用域双向传值",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "有,我发明的",
+                    "angular2": "有,我还要再一次发明",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "无,我不需要,什么有插件可以实现?"
+                },
+                {
+                    "name": "次时代功能－组件内部套外部模版",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "有,transclude吊炸天",
+                    "angular2": "好像没了",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "有,children,这和jQuery有区别吗?"
+                },
+                {
+                    "name": "次时代功能－服务器段渲染",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "无",
+                    "angular2": "有,react有的我一定要有",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "有,这是我的强项,但用的人很少"
+                },
+                {
+                    "name": "次时代功能－Webview APP",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "有,ionic很强大",
+                    "angular2": "有,ionic2",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "有"
+                },
+                {
+                    "name": "次时代功能－Native APP",
+                    "jquery": "无,跟不上时代了",
+                    "backbone": "无",
+                    "ember": "",
+                    "knockout": "",
+                    "angular": "无",
+                    "angular2": "有,react有的我一定要有",
+                    "vue": "",
+                    "avalon": "",
+                    "react": "有,react native 高大上"
                 }
             ]
         };
