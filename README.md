@@ -4,4 +4,4 @@
 
 ## 同时纪念2015的前端发展 当然也是因为微博和[知乎](https://www.zhihu.com/question/38924821)的帖子
 
-![2015前端框架对比](https://pic2.zhimg.com/ffa9b5d2fc5db59172db3c89f170abdd_r.png)
+![2015前端框架对比](https://pic2.zhimg.com/3e05e13e1e7eddff76fc898b2a1bdf55_r.png)
